@@ -32,7 +32,7 @@
       @for (t of posts()?.types; track t.slot) {
       <div class="type-badge">
         @if (t?.type?.name) {
-        <img [src]="'assets/icons/typeIcons/' + t.type.name + '.png'" [alt]="t.type.name" class="type-icon"> }
+        <img [src]="'assets/icons/typeIcons/' + t.type.name + '.ico'" [alt]="t.type.name" class="type-icon"> }
         <span>{{ t.type.name }}</span>
       </div>
       }

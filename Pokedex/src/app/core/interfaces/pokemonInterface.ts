@@ -14,27 +14,33 @@ export interface PokemonDetallado {
     };
   };
 
-  // 2. Tipos (Array de objetos)
+  // 2. Gritos (Urls de archivos de audio .ogg)
+  cries: {
+    latest: string; // Grito moderno remasterizado
+    legacy: string; // Grito clásico retro (juegos antiguos)
+  };
+
+  // 3. Tipos (Array de objetos)
   types: Array<{
     slot: number;
     type: { name: string; url: string; };
   }>;
 
-  // 3. Habilidades
+  // 4. Habilidades
   abilities: Array<{
     is_hidden: boolean;
     slot: number;
     ability: { name: string; url: string; };
   }>;
 
-  // 4. Stats de puntos base (Hp, Attack, Defense, etc.)
+  // 5. Stats de puntos base (Hp, Attack, Defense, etc.)
   stats: Array<{
     base_stat: number;
     effort: number;
     stat: { name: string; url: string; };
   }>;
 
-  // 5. Campos personalizados que agregaremos nosotros a mano (ver sección abajo)
+  // 6. Campos personalizados añadidos a mano en el servicio
   genderRateText?: string; // Para mostrar si es Macho, Hembra o Sin Género
   description?: string;    // Para la descripción en español
 }

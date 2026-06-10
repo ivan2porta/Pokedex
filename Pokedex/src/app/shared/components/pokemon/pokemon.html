@@ -2,19 +2,14 @@
   <h2>Listado de Publicaciones</h2>
 
   @if (isLoading()) {
-    <p>Cargando información desde la API...</p>
-  } 
+  <div class="loading">
+    <p>Cargando los datos del Pokémon...</p>
+  </div>
+} 
+
+@else if (posts()) {
   
-  @else {
-    <ul class="posts-list">
-      @for (post of posts(); track post.id) {
-        <li>
-          <h3>{{ post.title }}</h3>
-          <p>{{ post.body }}</p>
-        </li>
-      } @empty {
-        <p>No se encontraron publicaciones disponibles.</p>
-      }
-    </ul>
-  }
+
+  
+}
 </div>

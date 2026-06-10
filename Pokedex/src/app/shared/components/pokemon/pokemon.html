@@ -8,8 +8,51 @@
 } 
 
 @else if (posts()) {
-  
+  <div class="pokemon-container">
+    
+    <h1>#{{ posts()?.id }} - {{ posts()?.name }}</h1>
+    
+    <img [src]="posts()?.sprites?.other?.['official-artwork']?.front_default" [alt]="posts()?.name">
 
-  
+    <p class="description"><strong>Descripción:</strong> {{ posts()?.description }}</p>
+
+    <div class="bio">
+      <p><strong>Altura:</strong> {{ (posts()?.height || 0) / 10 }} m</p>
+      <p><strong>Peso:</strong> {{ (posts()?.weight || 0) / 10 }} kg</p>
+      <p><strong>Género:</strong> {{ posts()?.genderRateText }}</p>
+    </div>
+
+    <div class="audio-cry">
+      <p><strong>Grito:</strong></p>
+      <audio controls [src]="posts()?.cries?.latest"></audio>
+    </div>
+
+    <h3>Tipos</h3>
+    <div class="types-list">
+      @for (t of posts()?.types; track t.slot) {
+        <span class="type-badge">{{ t.type.name }}</span>
+      }
+    </div>
+
+    <h3>Habilidades</h3>
+    <ul>
+      @for (a of posts()?.abilities; track a.slot) {
+        <li>
+          {{ a.ability.name }} @if (a.is_hidden) { <em>(Oculta)</em> }
+        </li>
+      }
+    </ul>
+
+    <h3>Estadísticas Base</h3>
+    <div class="stats">
+      @for (s of posts()?.stats; track s.stat.name) {
+        <div class="stat-row">
+          <span>{{ s.stat.name }}:</span>
+          <strong>{{ s.base_stat }}</strong>
+        </div>
+      }
+    </div>
+
+  </div>
 }
 </div>

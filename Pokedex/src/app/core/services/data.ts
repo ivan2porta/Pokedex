@@ -21,8 +21,8 @@ export class Data {
       map(([base, especie]: [any, any]) => {
 
         // Buscamos la descripción que esté en español ('es')
-        const descripcionEspañol = especie.flavor_text_entries.find(
-          (entry: any) => entry.language.name === 'es'
+        const descripcion = especie.flavor_text_entries.find(
+          (entry: any) => entry.language.name === 'en'
         )?.flavor_text || 'Sin descripción disponible.';
 
         // Traducimos el ratio de género a texto legible
@@ -34,7 +34,7 @@ export class Data {
         // Retornamos un único objeto combinando todo
         return {
           ...base,
-          description: descripcionEspañol.replace(/\n|\f/g, ' '), // Limpiamos saltos de línea raros de la API
+          description: descripcion.replace(/\n|\f/g, ' '), // Limpiamos saltos de línea raros de la API
           genderRateText: genero
         } as PokemonDetallado;
       }

@@ -3,18 +3,18 @@ import { Data } from '../../../core/services/data';
 import { PokemonDetallado } from '../../../core/interfaces/pokemonInterface';
 
 @Component({
-  selector: 'app-pokemon',
+  selector: 'app-poke-datos',
   imports: [],
-  templateUrl: './pokemon.html',
-  styleUrl: './pokemon.css',
+  templateUrl: './poke-datos.html',
+  styleUrl: './poke-datos.css',
 })
-export class Pokemon implements OnInit{
-  private data = inject(Data); 
+export class PokeDatos implements OnInit{
+  private data = inject(Data);
 
   posts = signal<PokemonDetallado | null>(null);
   isLoading = signal<boolean>(true);
   ngOnInit(): void {
-    // 3. Llamamos a la API cuando el componente se inicializa
+    
     this.data.getPokemon(1025).subscribe({
       next: (data) => {
         this.posts.set(data);       // Guardamos los datos en el Signal

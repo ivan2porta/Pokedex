@@ -8,7 +8,7 @@ export interface PokemonDetallado {
   sprites: {
     front_default: string;
     other: {
-      'official-artwork': {
+      'home': {
         front_default: string;
       };
     };

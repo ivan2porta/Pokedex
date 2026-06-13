@@ -15,7 +15,7 @@ export class Pokemon implements OnInit{
   isLoading = signal<boolean>(true);
   ngOnInit(): void {
     // 3. Llamamos a la API cuando el componente se inicializa
-    this.data.getPokemon(1025).subscribe({
+    this.data.getPokemon(1).subscribe({
       next: (data) => {
         this.posts.set(data);       // Guardamos los datos en el Signal
         this.isLoading.set(false);  // Desactivamos el estado de carga

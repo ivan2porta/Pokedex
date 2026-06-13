@@ -1,5 +1,10 @@
 .idName{
     color: chartreuse;
+    text-transform: capitalize;
+}
+
+.img3d{
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
 .types-list{
@@ -10,6 +15,26 @@
     border: solid 4px red;
 }
 
-.type-incon{
-    height: 3rem;
+/* El contenedor del icono */
+.type-icon {
+  width: 3rem;           /* Controla el ancho del cuadro del icono */
+  height: 3rem;          /* Controla el alto */
+  display: flex;         /* Centra la imagen perfectamente dentro */
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;    /* Por si quieres que el contenedor sea redondo */
+  background-color: #eee;/* Un fondo gris suave opcional para el icono */
+  padding: 0.2rem;
+}
+
+/* La imagen que está dentro del contenedor */
+.type-icon img {
+  width: 100%;           /* Ocupa el 100% del espacio del div padre (32px) */
+  height: 100%;
+  object-fit: contain;   /* Evita que el icono se deforme o estire feo */
+}
+
+.pokemonInfo{
+    display: flex;
+    justify-content: space-between;
 }

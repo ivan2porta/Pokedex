@@ -9,20 +9,25 @@
   @else if (posts()) {
   <div class="pokemon-container">
     <div class="pokemon-imagen">
-      <img [src]="posts()?.sprites?.other?.home?.front_default" [alt]="posts()?.name">
+      <img [src]="posts()?.sprites?.other?.home?.front_default" [alt]="posts()?.name" class="img3d">
     </div>
-    
-    <h1 class="idName">{{ posts()?.id }} - {{ posts()?.name }}</h1>
 
-    
+    <div class="pokemonInfo">
+      <h1 class="idName">{{ posts()?.id }} - {{ posts()?.name }}</h1>
+
     <div class="types-list">
       @for (t of posts()?.types; track t.slot) {
       <div class="type-badge">
         @if (t?.type?.name) {
-        <img [src]="'assets/icons/typeIcons/' + t.type.name + '.ico'" [alt]="t.type.name" class="type-icon"> }
+        <div class="type-icon">
+          <img [src]="'assets/icons/typeIcons/' + t.type.name + '.ico'" [alt]="t.type.name">
+        </div>
+        }
       </div>
       }
     </div>
+    </div>
+
   </div>
   }
 </div>
